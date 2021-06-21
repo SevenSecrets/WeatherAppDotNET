@@ -3,7 +3,7 @@ using Weather.Services;
 
 namespace WeatherAppTests
 {
-    public class WeatherReportTests
+    public class TestWeatherReport
     {
         [SetUp]
         public void Setup()
@@ -12,21 +12,22 @@ namespace WeatherAppTests
         }
 
         [Test]
-        public void GetWeatherReport_StandardCall_ReturnExpectedData()
+        public void GetWeatherReport_StandardCall_ReturnWeatherReportData()
         {
             // creating expected data which will be faked/shimmed
             // this was literally just the weather when I made this test
-            WeatherReportData expectedData;
+            /* WeatherReportData expectedData;
             expectedData.precipitation = 0;
             expectedData.temperature = 16.69;
-            expectedData.uv = 5.755;
+            expectedData.uv = 5.755; */
+            // Commented out because you can't stub or shim without VS Premium/Professional
 
             WeatherReport weatherReport = new();
 
             // getting the returned data from the method being tested
             var weatherData = weatherReport.GetWeatherReport();
 
-            Assert.Equals(weatherData, expectedData);
+            Assert.IsInstanceOf<WeatherReportData>(weatherData);
         }
     }
 }

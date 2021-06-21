@@ -27,6 +27,12 @@ namespace WeatherApp
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddHttpClient("climacell", c =>
+            {
+                c.BaseAddress = new Uri("https://api.climacell.co/v3/weather/realtime");
+                c.DefaultRequestHeaders.Add("content-type", "application/json");
+                c.DefaultRequestHeaders.Add("apikey", "");
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -16,6 +16,7 @@ namespace WeatherApp
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,13 +27,7 @@ namespace WeatherApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddHttpClient("climacell", c =>
-            {
-                c.BaseAddress = new Uri("https://api.climacell.co/v3/weather/realtime");
-                c.DefaultRequestHeaders.Add("content-type", "application/json");
-                c.DefaultRequestHeaders.Add("apikey", "");
-            });
+            services.Configure<ApiKeyOptions>(Configuration.GetSection("ApiKeys"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

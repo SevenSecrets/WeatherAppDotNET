@@ -22,7 +22,7 @@ namespace WeatherApp.Controllers
             _apiKeyOptions = apiKeyOptions.Value;
         }
 
-        // GET /
+        // GET
         [HttpGet]
         public async Task<Dictionary<string, string>> GetIndex()
         {

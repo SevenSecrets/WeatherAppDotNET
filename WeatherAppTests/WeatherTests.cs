@@ -6,8 +6,9 @@ using WeatherApp.WeatherReports;
 
 namespace WeatherAppTests
 {
-    // These tests have to be commented out until I can actually mock
-    /*[TestFixture()]
+    // These tests have to be commented out until I can actually mock/shim http requests
+    /*
+    [TestFixture()]
     public class TestWeatherReport
     {
         private readonly ApiKeyOptions _options;
@@ -16,23 +17,9 @@ namespace WeatherAppTests
             _options = options.Value;
         }
 
-        [SetUp]
-        public void Setup()
-        {
-
-        }
-
         [Test]
         public void GetWeatherReport_StandardCall_ReturnWeatherReportData()
         {
-            // creating expected data which will be faked/shimmed
-            // this was literally just the weather when I made this test
-            WeatherReportData expectedData;
-            expectedData.precipitation = 0;
-            expectedData.temperature = 16.69;
-            expectedData.uv = 5.755;
-            // Commented out because you can't stub or shim without VS Premium/Professional
-
             WeatherReport weatherReport = new();
 
             // getting the returned data from the method being tested
@@ -40,5 +27,6 @@ namespace WeatherAppTests
 
             Assert.IsInstanceOf<WeatherReportData>(weatherData);
         }
-    } */
+    }
+    */
 }

@@ -45,10 +45,6 @@ namespace WeatherApp.WeatherReports
             string jsonBody = await response.Content.ReadAsStringAsync();
             ClimacellResponse climacellResponse = JsonConvert.DeserializeObject<ClimacellResponse>(jsonBody);
 
-            // WeatherReportData weatherReportData;
-            // weatherReportData.precipitation = (long)climacellResponse.precipitation["value"];
-            // weatherReportData.temperature = (double)climacellResponse.temp["value"];
-
             Dictionary<string, string> weatherReportData = new();
 
             weatherReportData.Add("latitude", climacellResponse.lat.ToString());
